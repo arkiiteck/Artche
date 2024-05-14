@@ -21,6 +21,7 @@
     --white-70: rgba(255,255,255,0.7);
     --white-90: rgba(255,255,255,0.9);
     --primary: #935AA1;
+    --primary-light: #d29ae0;
     --primary-50: rgba(147, 90, 161,0.8);
     --dark-primary: rgb(106, 70, 114);
     --openSans: "Open Sans", sans-serif;
@@ -140,9 +141,11 @@ a:hover .link-line{
 .hero h1{
     font-size: 7vw;
     line-height: 100%;
+    z-index: 3;
 }
 .hero h2{
     font-size: 1.5vw;
+    z-index: 3;
 }
 .hero .gradient{
     background: linear-gradient(0deg, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
@@ -151,6 +154,55 @@ a:hover .link-line{
     position: absolute;
     bottom: 0;
     left: 0;
+}
+.logo-carrusel{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 2;
+}
+.logo-carrusel p{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow: hidden;
+    pointer-events: none;
+}
+.logo-carrusel p span{
+    color: var(--white-20);
+    font-family: var(--principalFont);
+    font-size: 40px;
+    pointer-events: none;
+}
+.logo-carrusel p:nth-child(odd){
+    display: flex;
+    justify-content: start;
+}
+.logo-carrusel p:nth-child(odd) span:first-child{
+    animation: text-left linear infinite 5s;
+}
+@keyframes text-left {
+    0%{margin-left: 0px;}
+    100%{margin-left: -241.74px;}
+}
+.logo-carrusel p:nth-child(even){
+    display: flex;
+    justify-content: end;
+}
+.logo-carrusel p:nth-child(even) span:last-child{
+    animation: text-right linear infinite 5s;
+}
+@keyframes text-right {
+    0%{margin-right: 0px;}
+    100%{margin-right: -241.74px;}
 }
 section{
     padding: 50px 100px;
@@ -190,6 +242,10 @@ section{
     font-weight: 700;
     text-decoration: none;
 }
+.section-desciption{
+    color: var(--white);
+    font-size: 20px;
+}
 .section-text{
     width: 100%;
     height: 400px;
@@ -200,7 +256,7 @@ section{
 }
 .section-text figure{
     width: 60%;
-    height: 100%;
+    height: 400px;
     display: flex;
     justify-content: center;
     position: relative;
@@ -210,7 +266,7 @@ section{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 0 -230px;
+    object-position: center;
 }
 .section-text figure .purple-square{
     background-color: var(--primary);
@@ -511,7 +567,11 @@ section{
     transform: translateY(0%);
     transition: .2s;
 }
+.hero h1.contacto-title{
+    font-size: 3vw;
+}
 form{
+    padding: 20px;
     margin-top: 40px;
     display: flex;
     flex-direction: column;
@@ -531,7 +591,7 @@ form  label{
     font-family: var(--principalFont);
 }
 form input{
-    width: 50%;
+    width: 100%;
     padding: 10px;
     border-radius: 8px;
     outline: none;
@@ -607,8 +667,153 @@ textarea::placeholder{
     color: var(--primary);
     transition: .2s;
 }
-
-
+.w-95{
+    width: 95%;
+}
+.w-45{
+    width: 45%;
+}
+.propos{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+.propos-container{
+    background-color: var(--primary);
+    min-height: 694px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 60px;
+    overflow: hidden;
+}
+.propos-info-container{
+    padding: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.propos h3{
+    color: var(--white);
+    font-size: 30px;
+}
+.propos h2{
+    color: var(--white);
+}
+.propos p.bold{
+    color: var(--white);
+    font-size: 24px;
+    font-weight: bold;
+}
+.propos p{
+    color: var(--white);
+    font-size: 16px;
+}
+.propos a{
+    background-color: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+}
+.propos a:hover{
+    background-color: var(--white);
+    color: var(--primary);
+}
+.propos-images{
+    position: relative;
+}
+.propos-images figure, .propos-images img{
+    position: absolute;
+    width: 100px;
+}
+.propos-images img.icon{
+    bottom: 0;
+    right: 0;
+    width: 900px;
+    filter: invert(100%);
+    filter:brightness(100);
+    transform: translateX(20%) translateY(20%) rotate(-45deg);
+}
+.propos-images img.logo{
+    top: 100px;
+    left: 0;
+    width: 150px;
+    filter: brightness(1000%);
+}
+.propos-images figure{
+    aspect-ratio: 1/1;
+    transform: rotate(-45deg);
+    position: relative;
+    overflow: hidden;
+}
+.propos-images figure:nth-child(3){
+    width: 200px;
+    top: 75px;
+    left: 270px;
+    border-radius: 60px;
+}
+.propos-images figure:nth-child(4){
+    width: 300px;
+    top: 75px;
+    left: -100px;
+    border-radius: 80px;
+}
+.propos-images figure img{
+    width: 150%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    z-index: 2;
+}
+.propos-images figure img:nth-child(2){
+    width: 80%;
+    aspect-ratio: 1/1;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    animation: rotate 15s linear infinite;
+}
+@keyframes rotate{
+    0%{
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    100%{
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+footer{
+    padding: 30px 5%;
+    display: flex;
+}
+footer > div{
+    width: calc(100% / 3);
+    padding: 30px;
+    align-items: center;
+    color: var(--white);
+}
+footer > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer div img{
+    height: 30px;
+}
+footer > div:nth-child(3){
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+footer > div:nth-child(3) div{
+    gap: 20px;
+}
+footer > div:nth-child(3) a i{
+    color: var(--white);
+}
+footer > div:nth-child(3) a:hover i{
+    color: var(--primary-light);
+}
 
 .desktop-version{
     display: flex;
@@ -623,7 +828,7 @@ textarea::placeholder{
     flex-direction: row-reverse;
 }
 @media(max-width:1250px){
-    .hero h1{
+    .hero h1, .hero h1.contacto-title{
         font-size: calc(14vw / 2);
         line-height: 100%;
     }
@@ -680,6 +885,13 @@ textarea::placeholder{
     .mobile-version{
         display: flex;
     }
+    .hero footer{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero footer div h3 span:nth-child(3), .hero footer div h3 span:nth-child(4){
+        display: none;
+    }
 }
 @media(max-width:800px){
     nav{
@@ -708,5 +920,18 @@ textarea::placeholder{
     }
     .section-text{
         flex-direction: column;
+    }
+    footer{
+        flex-direction: column;
+    }
+    footer > div{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    footer > div div{
+        width: 100%;
+        justify-content: center;
     }
 }
