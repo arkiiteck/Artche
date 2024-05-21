@@ -844,6 +844,35 @@ footer > div:nth-child(3) a:hover i{
     transition: .2s;
     color: var(--white);
 }
+.project-image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.project-image img{
+    width: 80%;
+}
+.project-titles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.project-titles h2, h3{
+    font-family: var(--principalFont);
+    color: var(--white);
+}
+.project-titles h2{
+    width: 50%;
+    font-size: 44px;
+    text-align: center;
+}
+.project-titles h3{
+    font-size: 28px;
+    text-align: center;
+}
+.section-desciption p a{
+    color: var(--white);
+}
 .desktop-version{
     display: flex;
 }
@@ -935,6 +964,15 @@ footer > div:nth-child(3) a:hover i{
     .team-member{
         min-width: 100%;
         width: 100%;
+    }
+    .project-titles h2{
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    .project-titles h3{
+        font-size: 16px;
     }
 }
 @media(max-width:600px){
